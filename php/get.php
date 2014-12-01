@@ -3,9 +3,12 @@
   ini_set('display_errors', 1);
 
   require_once __DIR__ . '/vendor/ktamas77/firebase-php/firebaseLib.php';
+  
+  $date = new \DateTime();
+  $date->setTimezone(new DateTimeZone("America/Lima"));
 
   $datos = array(
-    'fecha' => (new \DateTime())->format('Y-m-d H:i:s'),
+    'fecha' => $date->format('Y-m-d H:i:s'),
     'temperatura' => $_GET['temperatura'],
     'humedad' => $_GET['humedad'],
     'proximidad' => $_GET['proximidad']
