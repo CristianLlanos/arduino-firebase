@@ -24,8 +24,7 @@
 
     $_firebase->push(DEFAULT_DATOS_PATH, $datos);
 
-    $response = $_firebase->get(DEFAULT_DATOS_PATH);
-    
+    // $response = $_firebase->get(DEFAULT_DATOS_PATH);
     // header('Content-Type: application/json');
     // echo json_encode($response);
     

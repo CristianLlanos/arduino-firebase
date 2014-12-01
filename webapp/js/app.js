@@ -17,22 +17,50 @@ app.controller("DatosController", function($scope, $firebase) {
           $scope.humedadSeries.push(parseInt(childSnapshot.val().humedad));
           $scope.proximidadSeries.push(parseInt(childSnapshot.val().proximidad));
        });
+
+       var p = $scope.proximidadSeries;
+       p = p.slice(p.length - 20, p.length);
+       var prox = []
+       p.forEach(function(dato) {
+           if(!isNaN(dato))
+            prox.push(dato);
+           else prox.push(0);
+       });
+       $scope.chartConfig.series[0].data = prox;
        
-       var t = $scope.temperaturaSeries;
-       $scope.chartConfig.series[0].data = t.slice(t.length - 20, t.length);
        var h = $scope.humedadSeries;
        $scope.chartConfig.series[1].data = h.slice(h.length - 20, h.length);
-       var p = $scope.proximidadSeries;
-       $scope.chartConfig.series[2].data = p.slice(p.length - 20, p.length);
+       
+       var t = $scope.temperaturaSeries;
+       $scope.chartConfig.series[2].data = t.slice(t.length - 20, t.length);
+
   });
     
   var sync = $firebase(ref);
   $scope.list = sync.$asArray();
   
   $scope.chartSeries = [
-    {"name": "Temperatura", "data": [], type: "line"},
-    {"name": "Humedad", "data": [], type: "line"},
-    {"name": "Proximidad", "data": [], type: "line"}
+    {
+        name: "Proximidad",
+        id: "series-0",
+        data: [],
+        type: "line",
+        connectNulls: true
+    },
+    {
+        name: "Humedad",
+        id: "series-1",
+        data: [],
+        type: "line",
+        connectNulls: true
+    },
+    {
+        name: "Temperatura",
+        id: "series-2",
+        data: [],
+        type: "line",
+        connectNulls: true
+    }
   ];
 
   $scope.chartConfig = {
@@ -42,7 +70,7 @@ app.controller("DatosController", function($scope, $firebase) {
       },
       plotOptions: {
         series: {
-          stacking: 'normal'
+          stacking: ''
         }
       }
     },
@@ -51,7 +79,7 @@ app.controller("DatosController", function($scope, $firebase) {
       text: 'Datos en tiempo real'
     },
     credits: {
-      enabled: true
+      enabled: false
     },
     loading: false,
     size: {}

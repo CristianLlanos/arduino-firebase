@@ -13,10 +13,22 @@
             <div ac-chart="chartType" ac-data="data" ac-config="config" id='chart' class='chart'></div>
             <table class="table table-hover">
                 <thead>
+                <tr>
                     <th>Fecha</th>
-                    <th>Humedad</th>
+                    <th>
+                    Humedad
+                        <a  tabindex="0" role="button" data-toggle="popover" data-trigger="hover"
+                            title="Humedad"
+                            data-content="
+                              # 0 ~ 300 suelo seco
+                              # 300 ~ 700 de suelo húmedo
+                              # 700 ~ 950 en el agua">
+                            <span class="glyphicon glyphicon-question-sign"> </span>
+                        </a>
+                    </th>
                     <th>Proximidad</th>
                     <th>Temperatura</th>
+                </tr>
                 </thead>
                 <tbody ng-repeat="dato in list">
                     <tr>
@@ -43,10 +55,16 @@
         <script src="js/angular.min.js"></script>
         <script src="js/firebase.js"></script>
         <script src="js/angularfire.min.js"></script>
-        <script src="js/jquery-1.7.2.js"></script>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <script src="js/highstock.src.js"></script>
         <script src="js/highcharts-ng.js"></script>
         <script src="js/exporting.js"></script>
         <script src="js/app.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(function () {
+              $('[data-toggle="popover"]').popover();
+            });
+        </script>
     </body>
 </html>
