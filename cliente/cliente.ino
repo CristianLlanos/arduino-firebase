@@ -28,7 +28,7 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 EthernetClient client;
 
 // Direccion del servidor a conectarse
-char host[] = "54.86.174.33";
+char host[] = "54.174.118.219";
 
 // Variable de tiempo de la ultima conexion en milisegundos
 unsigned long ultimaConexion = 0;          
@@ -73,7 +73,7 @@ void setup() {
 void loop() {
   //para temperatura
   temperaturaEnvio = analogRead(temperaturaPin);
-  temperaturaEnvio = (500 * temperaturaEnvio)/1024;
+  temperaturaEnvio = temperaturaEnvio / (9.31*4);
   //para Humedad
   humedadEnvio = analogRead(humedadPin);
   //Para Distancia
