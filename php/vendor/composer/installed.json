@@ -1,0 +1,40 @@
+[
+    {
+        "name": "ktamas77/firebase-php",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ktamas77/firebase-php.git",
+            "reference": "de594aa69d30ff35441abf4449a79fd56fbd6a8d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ktamas77/firebase-php/zipball/de594aa69d30ff35441abf4449a79fd56fbd6a8d",
+            "reference": "de594aa69d30ff35441abf4449a79fd56fbd6a8d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2014-10-09 21:42:09",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Tamas Kalman",
+                "email": "ktamas77@gmail.com"
+            }
+        ],
+        "description": "Firebase PHP Client",
+        "keywords": [
+            "firebase",
+            "rest",
+            "wrapper"
+        ]
+    }
+]
